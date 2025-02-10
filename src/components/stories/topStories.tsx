@@ -37,20 +37,20 @@ const TopStoriesComponent = () => {
     return <div className="p-4 text-gray-500">Loading HN stories...</div>;
   if (error) return <div className="p-4 text-red-500">Error: {error}</div>;
   return (
-    <div className="w-full px-6 pb-10">
+    <div className="w-full px-4 pb-10 sm:px-6">
       {topStories.length > 0 ? (
         <>
-          <div className="flex flex-col items-start justify-start gap-4 border-b border-black py-10">
+          <div className="flex flex-col items-start justify-start gap-4 border-b border-black py-4 sm:py-10">
             <p className="text-sm font-medium">Story</p>
-            <p className="text-5xl font-semibold leading-[52px]">
+            <p className="text-3xl font-semibold leading-9 sm:text-5xl sm:leading-[52px]">
               {bestStory[0]?.title}
             </p>
             <p className="text-xs font-medium text-[#767676]">
               {`by ${bestStory[0]?.by} ${bestStory[0] && formatDistanceToNow(new Date(bestStory[0]?.time * 1000))} ago`}
             </p>
           </div>
-          <div className="flex w-full justify-start gap-12 py-10">
-            <div className="flex w-full flex-wrap gap-6">
+          <div className="flex w-full flex-col justify-start gap-12 py-4 sm:flex-row sm:py-10">
+            <div className="flex w-full flex-wrap gap-4 sm:gap-6">
               {topStories.map((story) => (
                 <>
                   <StoryComponent

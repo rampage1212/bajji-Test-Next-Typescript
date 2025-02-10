@@ -12,7 +12,7 @@ const StoryComponent = ({
   time: number;
 }) => {
   return (
-    <div className="flex h-[122px] w-[272px] flex-col gap-2 border-b border-dashed border-black pb-6">
+    <div className="flex h-[122px] w-[272px] flex-col gap-2 border-b border-dashed border-black pb-4 sm:pb-6">
       <p className="text-sm font-medium leading-[14px]">Story</p>
       <a
         href={`https://news.ycombinator.com/item?id=${id}`}
