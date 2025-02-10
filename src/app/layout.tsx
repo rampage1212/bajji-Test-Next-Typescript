@@ -2,6 +2,9 @@ import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
+import Header from "~/components/layouts/header";
+import Footer from "~/components/layouts/footer";
+import HeaderBar from "~/components/layouts/headerBar";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -14,7 +17,16 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Header />
+        <main className="flex min-h-screen flex-col items-center justify-start bg-white text-black">
+          <div className="flex min-h-screen w-full max-w-screen-xl flex-col border-l border-r border-black">
+            <HeaderBar />
+            {children}
+          </div>
+        </main>
+        <Footer />
+      </body>
     </html>
   );
 }
