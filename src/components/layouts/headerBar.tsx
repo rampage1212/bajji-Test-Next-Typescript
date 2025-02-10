@@ -1,4 +1,29 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const bars = [
+  {
+    label: "Top",
+    url: "/",
+  },
+  {
+    label: "Ask",
+    url: "/ask",
+  },
+  {
+    label: "Show",
+    url: "/show",
+  },
+  {
+    label: "Jobs",
+    url: "/jobs",
+  },
+];
+
 const HeaderBar = () => {
+  const pathname = usePathname();
   return (
     <>
       <div className="flex items-center justify-between p-6">
@@ -9,10 +34,16 @@ const HeaderBar = () => {
         </div>
       </div>
       <div className="flex h-10 items-center justify-start border-b border-t border-black text-sm font-medium">
-        <button className="h-full bg-black px-6 text-white">Top</button>
-        <button className="h-full px-6 text-black">Ask</button>
-        <button className="h-full px-6 text-black">Show</button>
-        <button className="h-full px-6 text-black">Jobs</button>
+        {bars.map((bar, key) => (
+          <div key={key} className="h-full">
+            <Link
+              href={bar.url}
+              className={`flex h-full items-center px-6 ${pathname === bar.url ? "bg-black text-white" : "bg-white text-black"}`}
+            >
+              {bar.label}
+            </Link>
+          </div>
+        ))}
       </div>
     </>
   );

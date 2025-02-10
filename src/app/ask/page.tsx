@@ -14,7 +14,6 @@ const AskPage = () => {
     const loadStories = async () => {
       try {
         const data = await fetchStories(16, StoryTypes.ask);
-        console.log(data);
         setStories(data);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Failed to load stories");
